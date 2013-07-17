@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import piece.Pawn;
 
 public class Board {
-	ArrayList board;
+	ArrayList<Pawn> board;
 
 	Board() {
-		board = new ArrayList();
+		board = new ArrayList<Pawn>();
 	}
 
 	int pieceNumber() {

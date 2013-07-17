@@ -28,4 +28,8 @@ public class BoardTest extends TestCase {
 		assertEquals(2, board.pieceNumber());
 		assertEquals(true, board.contain(blackPawn1));
 	}
+	public void testInsertIntgerToBoard() throws Exception {
+		//연습문제 2-8 : 아래 주석을 해제하면 컴파일 에러
+		//board.addPiece(new Integer("7"));
+	}
 }
