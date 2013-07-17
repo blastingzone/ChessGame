@@ -1,9 +1,10 @@
+package chess;
 public class Pawn {
 
 	String color;
 
-	final String W = "White";
-	final String B = "Black";
+	static final String W = "White";
+	static final String B = "Black";
 	
 	String getColor() {
 		return color;

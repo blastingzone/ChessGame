@@ -1,3 +1,4 @@
+package chess;
 import junit.framework.TestCase;
 
 
@@ -16,7 +17,7 @@ public class BoardTest extends TestCase {
 		 * Pawn() == Pawn("White");
 		 */
 		Pawn whitePawn1 = new Pawn(); 
-		Pawn blackPawn1 = new Pawn("Black");
+		Pawn blackPawn1 = new Pawn(Pawn.B);
 		
 		board.addPiece(whitePawn1);
 		assertEquals(1, board.pieceNumber());
