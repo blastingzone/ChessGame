@@ -14,6 +14,6 @@ public class Pawn {
 	}
 	
 	Pawn() {
-		this.color = "White";
+		this.color = W;
 	}
 }
