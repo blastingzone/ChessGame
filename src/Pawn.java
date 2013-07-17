@@ -2,6 +2,9 @@ public class Pawn {
 
 	String color;
 
+	final String W = "White";
+	final String B = "Black";
+	
 	String getColor() {
 		return color;
 	}
