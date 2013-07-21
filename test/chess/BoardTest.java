@@ -7,7 +7,19 @@ public class BoardTest extends TestCase {
 	Board board = new Board();
 	
 	public void testCreateBoard() throws Exception {
-		assertEquals(1, board.pieceNumber());
+		assertEquals(0, board.pieceNumber());
+		
+		board.initialize();
+		
+		BoardRow testBoard = board.chessBoard.get(1);
+		for (int i = 0; i < 8; i++) {
+			assertEquals('P', testBoard.boardPieceRow.get(i).getType());
+		}
+		
+		testBoard = board.chessBoard.get(6);
+		for (int i = 0; i < 8; i++) {
+			assertEquals('p', testBoard.boardPieceRow.get(i).getType());
+		}
 	}
 	
 	/**
@@ -21,15 +33,29 @@ public class BoardTest extends TestCase {
 		Pawn blackPawn1 = new Pawn(Pawn.B);
 		
 		board.addPiece(whitePawn1);
-		assertEquals(2, board.pieceNumber());
+		assertEquals(1, board.pieceNumber());
 		assertEquals(true, board.contain(whitePawn1));
 		
 		board.addPiece(blackPawn1);
-		assertEquals(3, board.pieceNumber());
+		assertEquals(2, board.pieceNumber());
 		assertEquals(true, board.contain(blackPawn1));
 	}
 	public void testInsertIntgerToBoard() throws Exception {
 		//연습문제 2-8 : 아래 주석을 해제하면 컴파일 에러
 		//board.addPiece(new Integer("7"));
+	}
+	
+	public void testPrintChessBoard() throws Exception {
+		
+		board.initialize();
+		
+		StringBuilder chessBoard = new StringBuilder();
+		for(int i = 0; i < 8; i++) {
+			for(int j = 0; j < 8; j++) {
+				chessBoard.append(board.chessBoard.get(i).boardPieceRow.get(j).getType());
+			}
+			chessBoard.append('\n');
+		}
+		System.out.println(chessBoard);
 	}
 }

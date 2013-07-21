@@ -4,15 +4,20 @@ import java.util.ArrayList;
 import piece.Pawn;
 
 public class Board {
-	ArrayList<Pawn> board;
+	ArrayList<Pawn> pawnList;
+	ArrayList<BoardRow> chessBoard;
 
 	Board() {
-		board = new ArrayList<Pawn>();
-		board.add(new Pawn());
+		chessBoard = new ArrayList<BoardRow>();
+		pawnList = new ArrayList<Pawn>();
+		for (int i = 0; i < 8 ;i++) {
+			chessBoard.add(new BoardRow());
+			chessBoard.get(i).rowInitialize();
+		}
 	}
 
 	int pieceNumber() {
-		return board.size();
+		return pawnList.size();
 	}
 
 	/**
@@ -20,7 +25,7 @@ public class Board {
 	 * @param pawn : 체스에 사용할 Pawn Class이다. Black / White Color값을 가질 수 있다.
 	 */
 	void addPiece(Pawn pawn) {
-		board.add(pawn);
+		pawnList.add(pawn);
 	}
 	
 	/**
@@ -29,6 +34,11 @@ public class Board {
 	 * @return 해당 pawn이 있으면 true, 없으면 false
 	 */
 	boolean contain(Pawn pawn) {
-		return board.contains(pawn);
+		return pawnList.contains(pawn);
+	}
+	
+	void initialize() {
+		chessBoard.get(1).rowSetBlackPawn();
+		chessBoard.get(6).rowSetWhitePawn();
 	}
 }
