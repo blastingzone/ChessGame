@@ -52,12 +52,13 @@ public class BoardTest extends TestCase {
 		
 		board.initialize();
 		
-		StringBuilder chessBoard = new StringBuilder();
+		String chessBoard = "";
+		
 		for(int i = 0; i < 8; i++) {
 			for(int j = 0; j < 8; j++) {
-				chessBoard.append(board.chessBoard.get(i).boardPieceRow.get(j).getType());
+				chessBoard += board.chessBoard.get(i).boardPieceRow.get(j).getType();
 			}
-			chessBoard.append(NEWLINE);
+			chessBoard += NEWLINE;
 		}
 		System.out.println(chessBoard);
 	}
