@@ -18,4 +18,11 @@ public class CharacterTest extends TestCase {
 		result = Character.isWhitespace('\u0009');
 		assertTrue(result);
 	}
+
+	public void testIdentifier() throws Exception {
+		boolean result = Character.isJavaIdentifierPart('^');
+		assertFalse(result);
+		result = Character.isJavaIdentifierPart('a');
+		assertTrue(result);
+	}
 }
