@@ -4,6 +4,9 @@ import piece.Pawn;
 
 
 public class BoardTest extends TestCase {
+	
+	static final String NEWLINE = System.getProperty("line.separator");
+	
 	Board board = new Board();
 	
 	public void testCreateBoard() throws Exception {
@@ -54,7 +57,7 @@ public class BoardTest extends TestCase {
 			for(int j = 0; j < 8; j++) {
 				chessBoard.append(board.chessBoard.get(i).boardPieceRow.get(j).getType());
 			}
-			chessBoard.append('\n');
+			chessBoard.append(NEWLINE);
 		}
 		System.out.println(chessBoard);
 	}
