@@ -8,6 +8,7 @@ public class Board {
 
 	Board() {
 		board = new ArrayList<Pawn>();
+		board.add(new Pawn());
 	}
 
 	int pieceNumber() {

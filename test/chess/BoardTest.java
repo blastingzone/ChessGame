@@ -7,7 +7,7 @@ public class BoardTest extends TestCase {
 	Board board = new Board();
 	
 	public void testCreateBoard() throws Exception {
-		assertEquals(0, board.pieceNumber());
+		assertEquals(1, board.pieceNumber());
 	}
 	
 	/**
@@ -21,11 +21,11 @@ public class BoardTest extends TestCase {
 		Pawn blackPawn1 = new Pawn(Pawn.B);
 		
 		board.addPiece(whitePawn1);
-		assertEquals(1, board.pieceNumber());
+		assertEquals(2, board.pieceNumber());
 		assertEquals(true, board.contain(whitePawn1));
 		
 		board.addPiece(blackPawn1);
-		assertEquals(2, board.pieceNumber());
+		assertEquals(3, board.pieceNumber());
 		assertEquals(true, board.contain(blackPawn1));
 	}
 	public void testInsertIntgerToBoard() throws Exception {
