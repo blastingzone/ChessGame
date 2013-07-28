@@ -49,4 +49,18 @@ public class Piece {
 		else
 			name = '.';
 	}
+
+	boolean isWhite() {
+		if (color == W)
+			return true;
+		else
+			return false;
+	}
+	
+	boolean isBlack() {
+		if (color == B)
+			return true;
+		else
+			return false;
+	}
 }
