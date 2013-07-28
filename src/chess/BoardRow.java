@@ -11,19 +11,19 @@ public class BoardRow {
 	BoardRow() {
 		boardPieceRow = new ArrayList<Pawn>();
 	}
-	
+
 	void rowInitialize() {
 		for (int i = 0; i < 8; i++) {
 			boardPieceRow.add(initialPawn);
 		}
 	}
-	
+
 	void rowSetWhitePawn() {
 		for (int i = 0; i < 8; i++) {
 			boardPieceRow.get(i).setColor(Pawn.W);
 		}
 	}
-	
+
 	void rowSetBlackPawn() {
 		for (int i = 0; i < 8; i++) {
 			boardPieceRow.get(i).setColor(Pawn.B);

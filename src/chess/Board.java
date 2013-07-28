@@ -10,6 +10,10 @@ public class Board {
 	Board() {
 		chessBoard = new ArrayList<BoardRow>();
 		pawnList = new ArrayList<Pawn>();
+		initialBoard();
+	}
+
+	private void initialBoard() {
 		for (int i = 0; i < 8 ;i++) {
 			chessBoard.add(new BoardRow());
 			chessBoard.get(i).rowInitialize();
@@ -40,5 +44,9 @@ public class Board {
 	void initialize() {
 		chessBoard.get(1).rowSetBlackPawn();
 		chessBoard.get(6).rowSetWhitePawn();
+		for (int i = 0; i < 8; i++) {
+			pawnList.add(new Pawn());
+			pawnList.add(new Pawn(Pawn.B));
+		}
 	}
 }
