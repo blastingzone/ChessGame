@@ -2,7 +2,7 @@ package piece;
 import piece.Piece;
 import junit.framework.TestCase;
 
-public class PawnTest extends TestCase {
+public class PieceTest extends TestCase {
 	public void testCreate() throws Exception {
 		
 		Piece cutiePawn = Piece.create(Piece.PAWN, Piece.W);
