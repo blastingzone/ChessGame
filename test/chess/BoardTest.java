@@ -1,63 +1,24 @@
 package chess;
+
 import junit.framework.TestCase;
-import piece.Piece;
-import static util.StringUtil.NEWLINE;
+import util.StringUtil;
 
 public class BoardTest extends TestCase {
-	
+
 	Board board = new Board();
-	
+
 	public void testCreateBoard() throws Exception {
-		assertEquals(0, board.pieceNumber());
-		
-		board.initialize();
-		
-		BoardRow testBoard = board.chessBoard.get(1);
-		for (int i = 0; i < 8; i++) {
-			assertEquals('P', testBoard.boardPieceRow.get(i).getType());
-		}
-		
-		testBoard = board.chessBoard.get(6);
-		for (int i = 0; i < 8; i++) {
-			assertEquals('p', testBoard.boardPieceRow.get(i).getType());
-		}
-	}
-	
-	/**
-	 * 체스판에 말을 추가하고 확인하는 테스트 함
-	 */
-	public void testAddPiece() throws Exception {
-		/**
-		 * Pawn() == Pawn("White");
-		 */
-		Piece whitePawn1 = Piece.create(Piece.PAWN, Piece.W); 
-		Piece blackPawn1 = Piece.create(Piece.PAWN, Piece.B);
-		
-		board.addPiece(whitePawn1);
-		assertEquals(1, board.pieceNumber());
-		assertEquals(true, board.contain(whitePawn1));
-		
-		board.addPiece(blackPawn1);
-		assertEquals(2, board.pieceNumber());
-		assertEquals(true, board.contain(blackPawn1));
-	}
-	public void testInsertIntgerToBoard() throws Exception {
-		//연습문제 2-8 : 아래 주석을 해제하면 컴파일 에러
-		//board.addPiece(new Integer("7"));
-	}
-	
-	public void testPrintChessBoard() throws Exception {
-		
-		board.initialize();
-		
-		String chessBoard = "";
-		
-		for(int i = 0; i < 8; i++) {
-			for(int j = 0; j < 8; j++) {
-				chessBoard += board.chessBoard.get(i).boardPieceRow.get(j).getType();
-			}
-			chessBoard += NEWLINE;
-		}
-		System.out.println(chessBoard);
+
+		board.initialBoard();
+		assertEquals(32, board.pieceCount());
+		String blankRank = StringUtil.appendNewLine("........");
+		assertEquals(
+				StringUtil.appendNewLine("RNBQKBNR")
+						+ StringUtil.appendNewLine("PPPPPPPP") + blankRank
+						+ blankRank + blankRank + blankRank
+						+ StringUtil.appendNewLine("pppppppp")
+						+ StringUtil.appendNewLine("rnbqkbnr"), board.print());
+
+		System.out.println(board.print());
 	}
 }

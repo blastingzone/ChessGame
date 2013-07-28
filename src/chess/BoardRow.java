@@ -12,21 +12,27 @@ public class BoardRow {
 		boardPieceRow = new ArrayList<Piece>();
 	}
 
-	void rowInitialize() {
+	void rowAddPawn(String color) {
+		for (int i = 0; i < 8; i++) {
+			boardPieceRow.add(Piece.create(Piece.PAWN, color));
+		}
+	}
+	
+	void rowAddBlank() {
 		for (int i = 0; i < 8; i++) {
 			boardPieceRow.add(initialPawn);
 		}
 	}
-
-	void rowSetWhitePawn() {
-		for (int i = 0; i < 8; i++) {
-			boardPieceRow.get(i).setColor(Piece.W);
-		}
+	
+	void rowAddPieces(String color) {
+		boardPieceRow.add(Piece.create(Piece.ROOK, color));
+		boardPieceRow.add(Piece.create(Piece.KNIGHT, color));
+		boardPieceRow.add(Piece.create(Piece.BISHOP, color));
+		boardPieceRow.add(Piece.create(Piece.QUEEN, color));
+		boardPieceRow.add(Piece.create(Piece.KING, color));
+		boardPieceRow.add(Piece.create(Piece.BISHOP, color));
+		boardPieceRow.add(Piece.create(Piece.KNIGHT, color));
+		boardPieceRow.add(Piece.create(Piece.ROOK, color));
 	}
 
-	void rowSetBlackPawn() {
-		for (int i = 0; i < 8; i++) {
-			boardPieceRow.get(i).setColor(Piece.B);
-		}
-	}
 }
