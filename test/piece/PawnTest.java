@@ -1,17 +1,14 @@
 package piece;
-import piece.Pawn;
+import piece.Piece;
 import junit.framework.TestCase;
 
 public class PawnTest extends TestCase {
 	public void testCreate() throws Exception {
 		
-		Pawn cutiePawn = new Pawn(Pawn.W);
-		assertEquals(Pawn.W, cutiePawn.getColor());
+		Piece cutiePawn = Piece.create(Piece.PAWN, Piece.W);
+		assertEquals(Piece.W, cutiePawn.getColor());
 		
-		cutiePawn.color = Pawn.B;
-		assertEquals(Pawn.B, cutiePawn.getColor());
-	}
-	public void testWithoutColor() throws Exception {
-		Pawn noColorPawn = new Pawn();
+		cutiePawn.color = Piece.B;
+		assertEquals(Piece.B, cutiePawn.getColor());
 	}
 }

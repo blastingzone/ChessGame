@@ -1,6 +1,6 @@
 package chess;
 import junit.framework.TestCase;
-import piece.Pawn;
+import piece.Piece;
 import static util.StringUtil.NEWLINE;
 
 public class BoardTest extends TestCase {
@@ -30,8 +30,8 @@ public class BoardTest extends TestCase {
 		/**
 		 * Pawn() == Pawn("White");
 		 */
-		Pawn whitePawn1 = new Pawn(); 
-		Pawn blackPawn1 = new Pawn(Pawn.B);
+		Piece whitePawn1 = Piece.create(Piece.PAWN, Piece.W); 
+		Piece blackPawn1 = Piece.create(Piece.PAWN, Piece.B);
 		
 		board.addPiece(whitePawn1);
 		assertEquals(1, board.pieceNumber());

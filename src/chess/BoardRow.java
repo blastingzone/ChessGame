@@ -2,14 +2,14 @@ package chess;
 
 import java.util.ArrayList;
 
-import piece.Pawn;
+import piece.Piece;
 
 public class BoardRow {
-	ArrayList<Pawn> boardPieceRow;
-	Pawn initialPawn = new Pawn("EMPTY");
+	ArrayList<Piece> boardPieceRow;
+	Piece initialPawn = Piece.create(Piece.PAWN, "EMPTY");
 
 	BoardRow() {
-		boardPieceRow = new ArrayList<Pawn>();
+		boardPieceRow = new ArrayList<Piece>();
 	}
 
 	void rowInitialize() {
@@ -20,13 +20,13 @@ public class BoardRow {
 
 	void rowSetWhitePawn() {
 		for (int i = 0; i < 8; i++) {
-			boardPieceRow.get(i).setColor(Pawn.W);
+			boardPieceRow.get(i).setColor(Piece.W);
 		}
 	}
 
 	void rowSetBlackPawn() {
 		for (int i = 0; i < 8; i++) {
-			boardPieceRow.get(i).setColor(Pawn.B);
+			boardPieceRow.get(i).setColor(Piece.B);
 		}
 	}
 }
