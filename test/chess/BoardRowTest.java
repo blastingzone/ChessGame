@@ -1,7 +1,6 @@
 package chess;
 
 import junit.framework.TestCase;
-import pieces.Piece;
 
 public class BoardRowTest extends TestCase {
 	public void testCreate() throws Exception {
@@ -13,10 +12,10 @@ public class BoardRowTest extends TestCase {
 	
 	public void testAddBlackPiece() throws Exception {
 		BoardRow boardRow = new BoardRow();
-		boardRow.rowAddPieces(Piece.B);
+		boardRow.rowAddBlackPieces();
 		StringBuilder stringBuilder = new StringBuilder();
 		for (int i = 0; i < 8; i++) {
-			stringBuilder.append(boardRow.boardPieceRow.get(i).getName());
+			stringBuilder.append(boardRow.boardPieceRow.get(i).getRepresentation());
 		}
 		String result = stringBuilder.toString();
 		assertEquals("RNBQKBNR", result);
@@ -24,10 +23,10 @@ public class BoardRowTest extends TestCase {
 	
 	public void testAddWhitePiece() throws Exception {
 		BoardRow boardRow = new BoardRow();
-		boardRow.rowAddPieces(Piece.W);
+		boardRow.rowAddWhitePieces();
 		StringBuilder stringBuilder = new StringBuilder();
 		for (int i = 0; i < 8; i++) {
-			stringBuilder.append(boardRow.boardPieceRow.get(i).getName());
+			stringBuilder.append(boardRow.boardPieceRow.get(i).getRepresentation());
 		}
 		String result = stringBuilder.toString();
 		assertEquals("rnbqkbnr", result);
@@ -35,10 +34,10 @@ public class BoardRowTest extends TestCase {
 	
 	public void testAddWhitePawn() throws Exception {
 		BoardRow boardRow = new BoardRow();
-		boardRow.rowAddPawn(Piece.W);
+		boardRow.rowAddWhitePawn();
 		StringBuilder stringBuilder = new StringBuilder();
 		for (int i = 0; i < 8; i++) {
-			stringBuilder.append(boardRow.boardPieceRow.get(i).getName());
+			stringBuilder.append(boardRow.boardPieceRow.get(i).getRepresentation());
 		}
 		String result = stringBuilder.toString();
 		assertEquals("pppppppp", result);

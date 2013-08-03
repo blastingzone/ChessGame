@@ -24,13 +24,13 @@ public class Board {
 	}
 	
 	private void initializeAllRow() {
-		chessBoard.get(0).rowAddPieces(Piece.B);
-		chessBoard.get(1).rowAddPawn(Piece.B);
+		chessBoard.get(0).rowAddBlackPieces();
+		chessBoard.get(1).rowAddBlackPawn();
 		for (int i = 0; i < 6; i++) {
 			chessBoard.get(i).rowAddBlank();
 		}
-		chessBoard.get(6).rowAddPawn(Piece.W);
-		chessBoard.get(7).rowAddPieces(Piece.W);
+		chessBoard.get(6).rowAddWhitePawn();
+		chessBoard.get(7).rowAddWhitePieces();
 	}
 	
 	String print() {
@@ -39,7 +39,7 @@ public class Board {
 		
 		for(int i = 0; i < 8; i++) {
 			for(int j = 0; j < 8; j++) {
-				chessBoard += this.chessBoard.get(i).boardPieceRow.get(j).getName();
+				chessBoard += this.chessBoard.get(i).boardPieceRow.get(j).getRepresentation();
 			}
 			chessBoard += NEWLINE;
 		}
@@ -47,15 +47,25 @@ public class Board {
 	}
 	
 	int pieceCount() {
-		return (countWhitePiece() + countBlackPiece());
+		Piece result;
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				result = chessBoard.get(i).boardPieceRow.get(j);
+				if (result.isWhite())
+					numOfWhitePiece++;
+				else if (result.isBlack())
+					numOfBlackPiece++;
+			}
+		}
+		return (this.numOfWhitePiece + this.numOfBlackPiece);
 	}
 
 
 	int countWhitePiece() {
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
-				String result = chessBoard.get(i).boardPieceRow.get(j).getColor();
-				if (result == Piece.W)
+				Piece result = chessBoard.get(i).boardPieceRow.get(j);
+				if (result.isWhite())
 					numOfWhitePiece++;
 			}
 		}
@@ -65,8 +75,8 @@ public class Board {
 	int countBlackPiece() {
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
-				String result = chessBoard.get(i).boardPieceRow.get(j).getColor();
-				if (result == Piece.B)
+				Piece result = chessBoard.get(i).boardPieceRow.get(j);
+				if (result.isBlack())
 					numOfBlackPiece++;
 			}
 		}

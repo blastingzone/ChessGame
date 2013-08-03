@@ -6,15 +6,21 @@ import pieces.Piece;
 
 public class BoardRow {
 	ArrayList<Piece> boardPieceRow;
-	Piece initialPawn = Piece.create(Piece.PAWN, "EMPTY");
+	Piece initialPawn = Piece.noPiece();
 
 	BoardRow() {
 		boardPieceRow = new ArrayList<Piece>();
 	}
 
-	void rowAddPawn(String color) {
+	void rowAddWhitePawn() {
 		for (int i = 0; i < 8; i++) {
-			boardPieceRow.add(Piece.create(Piece.PAWN, color));
+			boardPieceRow.add(Piece.createWhitePawn());
+		}
+	}
+	
+	void rowAddBlackPawn() {
+		for (int i = 0; i < 8; i++) {
+			boardPieceRow.add(Piece.createBlackPawn());
 		}
 	}
 	
@@ -24,15 +30,26 @@ public class BoardRow {
 		}
 	}
 	
-	void rowAddPieces(String color) {
-		boardPieceRow.add(Piece.create(Piece.ROOK, color));
-		boardPieceRow.add(Piece.create(Piece.KNIGHT, color));
-		boardPieceRow.add(Piece.create(Piece.BISHOP, color));
-		boardPieceRow.add(Piece.create(Piece.QUEEN, color));
-		boardPieceRow.add(Piece.create(Piece.KING, color));
-		boardPieceRow.add(Piece.create(Piece.BISHOP, color));
-		boardPieceRow.add(Piece.create(Piece.KNIGHT, color));
-		boardPieceRow.add(Piece.create(Piece.ROOK, color));
+	void rowAddWhitePieces() {
+		boardPieceRow.add(Piece.createWhiteRook());
+		boardPieceRow.add(Piece.createWhiteKnight());
+		boardPieceRow.add(Piece.createWhiteBishop());
+		boardPieceRow.add(Piece.createWhiteQueen());
+		boardPieceRow.add(Piece.createWhiteKing());
+		boardPieceRow.add(Piece.createWhiteBishop());
+		boardPieceRow.add(Piece.createWhiteKnight());
+		boardPieceRow.add(Piece.createWhiteRook());
+	}
+	
+	void rowAddBlackPieces() {
+		boardPieceRow.add(Piece.createBlackRook());
+		boardPieceRow.add(Piece.createBlackKnight());
+		boardPieceRow.add(Piece.createBlackBishop());
+		boardPieceRow.add(Piece.createBlackQueen());
+		boardPieceRow.add(Piece.createBlackKing());
+		boardPieceRow.add(Piece.createBlackBishop());
+		boardPieceRow.add(Piece.createBlackKnight());
+		boardPieceRow.add(Piece.createBlackRook());
 	}
 
 }
