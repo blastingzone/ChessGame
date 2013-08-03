@@ -3,7 +3,7 @@ import static util.StringUtil.NEWLINE;
 
 import java.util.ArrayList;
 
-import piece.Piece;
+import pieces.Piece;
 
 public class Board {
 	int numOfWhitePiece;

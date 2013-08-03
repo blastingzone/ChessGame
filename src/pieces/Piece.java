@@ -1,15 +1,15 @@
-package piece;
+package pieces;
 public class Piece {
 
 	public static final String W = ColorList.W.getColor();
 	public static final String B = ColorList.B.getColor();
 	
-	public static final char PAWN = 'p';
-	public static final char KNIGHT = 'n';
-	public static final char ROOK = 'r';
-	public static final char BISHOP = 'b';
-	public static final char QUEEN = 'q';
-	public static final char KING = 'k';
+	public static final char PAWN = PieceTypeList.PAWN.getName();
+	public static final char KNIGHT = PieceTypeList.KNIGHT.getName();
+	public static final char ROOK = PieceTypeList.ROOK.getName();
+	public static final char BISHOP = PieceTypeList.BISHOP.getName();
+	public static final char QUEEN = PieceTypeList.QUEEN.getName();
+	public static final char KING = PieceTypeList.KING.getName();
 	
 	String color;
 	char name;

@@ -2,7 +2,7 @@ package chess;
 
 import java.util.ArrayList;
 
-import piece.Piece;
+import pieces.Piece;
 
 public class BoardRow {
 	ArrayList<Piece> boardPieceRow;

@@ -1,4 +1,4 @@
-package piece;
+package pieces;
 
 enum ColorList {
 	B("Black"), W("White");
