@@ -14,7 +14,7 @@ public class Piece {
 			color = string;
 		}
 		
-		String getColor() {
+		public String getColor() {
 			return color;
 		}
 	}

@@ -1,11 +1,12 @@
 package chess;
 import static util.StringUtil.NEWLINE;
-
 import java.util.ArrayList;
-
 import pieces.Piece;
 
 public class Board {
+	public static final int rowLength = 8;
+	public static final int colLength = 8;
+	
 	int numOfWhitePiece;
 	int numOfBlackPiece;
 	
@@ -17,7 +18,7 @@ public class Board {
 	}
 
 	void initialBoard() {
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < rowLength; i++) {
 			chessBoard.add(new BoardRow());
 		}
 		initializeAllRow();
@@ -37,8 +38,8 @@ public class Board {
 
 		String chessBoard = "";
 		
-		for(int i = 0; i < 8; i++) {
-			for(int j = 0; j < 8; j++) {
+		for(int i = 0; i < rowLength; i++) {
+			for(int j = 0; j < colLength; j++) {
 				chessBoard += this.chessBoard.get(i).boardPieceRow.get(j).getRepresentation();
 			}
 			chessBoard += NEWLINE;
@@ -48,8 +49,8 @@ public class Board {
 	
 	int pieceCount() {
 		Piece result;
-		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 8; j++) {
+		for (int i = 0; i < rowLength; i++) {
+			for (int j = 0; j < colLength; j++) {
 				result = chessBoard.get(i).boardPieceRow.get(j);
 				if (result.isWhite())
 					numOfWhitePiece++;
@@ -62,9 +63,10 @@ public class Board {
 
 
 	int countWhitePiece() {
-		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 8; j++) {
-				Piece result = chessBoard.get(i).boardPieceRow.get(j);
+		Piece result;
+		for (int i = 0; i < rowLength; i++) {
+			for (int j = 0; j < colLength; j++) {
+				result = chessBoard.get(i).boardPieceRow.get(j);
 				if (result.isWhite())
 					numOfWhitePiece++;
 			}
@@ -73,13 +75,28 @@ public class Board {
 	}
 	
 	int countBlackPiece() {
-		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 8; j++) {
-				Piece result = chessBoard.get(i).boardPieceRow.get(j);
+		Piece result;
+		for (int i = 0; i < rowLength; i++) {
+			for (int j = 0; j < colLength; j++) {
+				result = chessBoard.get(i).boardPieceRow.get(j);
 				if (result.isBlack())
 					numOfBlackPiece++;
 			}
 		}
 		return numOfBlackPiece;
+	}
+	
+	int numOfPieceByEqualPiece(Piece piece) {
+		int count = 0;
+		Piece otherPiece;
+		for (int i = 0; i < rowLength; i++) {
+			for (int j = 0; j < colLength; j++) {
+				otherPiece = chessBoard.get(i).boardPieceRow.get(j);
+				if ((piece.getType() == otherPiece.getType()) && (piece.getColor() == otherPiece.getColor()))
+					count++;
+			}
+		}
+		
+		return count;
 	}
 }

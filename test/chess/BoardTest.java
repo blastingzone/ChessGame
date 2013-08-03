@@ -1,5 +1,6 @@
 package chess;
 
+import pieces.Piece;
 import junit.framework.TestCase;
 import util.StringUtil;
 
@@ -20,5 +21,14 @@ public class BoardTest extends TestCase {
 						+ StringUtil.appendNewLine("rnbqkbnr"), board.print());
 
 		System.out.println(board.print());
+	}
+	
+	public void testPieceNumber() throws Exception {
+		int result = board.numOfPieceByEqualPiece(Piece.createBlackBishop());
+		assertEquals(2, result);
+		result = board.numOfPieceByEqualPiece(Piece.createBlackQueen());
+		assertEquals(1, result);
+		result = board.numOfPieceByEqualPiece(Piece.createWhitePawn());
+		assertEquals(8, result);
 	}
 }
