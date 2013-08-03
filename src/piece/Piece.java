@@ -1,8 +1,8 @@
 package piece;
 public class Piece {
 
-	public static final String W = "White";
-	public static final String B = "Black";
+	public static final String W = ColorList.W.getColor();
+	public static final String B = ColorList.B.getColor();
 	
 	public static final char PAWN = 'p';
 	public static final char KNIGHT = 'n';
