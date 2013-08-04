@@ -87,6 +87,20 @@ public class BoardTest extends TestCase {
 		board.getTotalValue();
 		assertEquals(13.0, board.getWhiteValue());
 		assertEquals(7.5, board.getBlackValue());
-		System.out.println(board.print());
+//		System.out.println(board.print());
+	}
+	
+	public void testSortedList() throws Exception {
+		board.addPieceByXY("a1", Piece.createBlackRook());
+		board.addPieceByXY("a2", Piece.createBlackBishop());
+		board.addPieceByXY("a3", Piece.createBlackPawn());
+		board.addPieceByXY("a4", Piece.createBlackRook());
+		board.addPieceByXY("c1", Piece.createWhiteKing());
+		board.addPieceByXY("c2", Piece.createWhiteQueen());
+		board.addPieceByXY("c3", Piece.createWhitePawn());
+		board.addPieceByXY("c4", Piece.createWhitePawn());
+		board.makePieceList();
+		board.printBlackPieceList();
+		board.printWhitePieceList();
 	}
 }

@@ -3,7 +3,7 @@ package pieces;
 import static pieces.Piece.ColorList.*;
 import static pieces.Piece.PieceType.*;
 
-public class Piece {
+public class Piece implements Comparable<Piece>{
 	
 	enum ColorList {
 		B("Black"), W("White"), E("Empty");
@@ -160,5 +160,13 @@ public class Piece {
 	
 	public static Piece noPiece() {
 		return new Piece(NO_PIECE, E);
+	}
+
+	@Override
+	public int compareTo(Piece other) {
+		Double result1 = this.getValue();
+		Double result2 = other.getValue();
+		int result = result2.compareTo(result1);
+		return result;
 	}
 }

@@ -2,6 +2,7 @@ package chess;
 import static util.StringUtil.NEWLINE;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import pieces.Piece;
 import pieces.Piece.PieceType;
@@ -14,8 +15,11 @@ public class Board {
 	int numOfBlackPiece;
 	
 	ArrayList<BoardRow> chessBoard;
-	double blackValue;
-	double whiteValue;
+	private double blackValue;
+	private double whiteValue;
+	
+	ArrayList<Piece> blackList = new ArrayList<Piece>();
+	ArrayList<Piece> whiteList = new ArrayList<Piece>();
 
 	Board() {
 		chessBoard = new ArrayList<BoardRow>();
@@ -148,7 +152,7 @@ public class Board {
 	
 	//dictionary를 만들어서 Key를 숫자로, Value를 Piece로 잡고 각 Key가 가지고 있는 element 숫자만큼 Key값에 곱해서 리턴
 	//같은 줄에 있는 Pawn이 발견되면 0.5 -> 1.0 Key쪽으로 옮긴다.
-	//하지만 dictionary에서 같은 키에 여러 값을 매핑하는 좋은 방법이 떠오르지 않는다.
+	//하지만 dictionary에서 같은 키에 여러 값을 매핑하는 좋은 방법이 떠오르지 않는다.(리스트로 넣으면 꺼내기 복잡하다)
 	//점수만 뽑아내는 것으로 방향 수정
 	void getTotalValue(){
 		blackValue = 0;
@@ -202,5 +206,34 @@ public class Board {
 	
 	double getWhiteValue() {
 		return whiteValue;
+	}
+	
+	void makePieceList() {
+		Piece present;
+		for(int i = 0; i < rowLength; i++) {
+			for(int j = 0; j < colLength; j++) {
+				present = chessBoard.get(i).boardPieceRow.get(j);
+				if (present.isBlack())
+					blackList.add(present);
+				else if (present.isWhite())
+					whiteList.add(present);
+			}
+		}
+	}
+	
+	void printBlackPieceList() {
+		Collections.sort(blackList);
+		String bList = "";
+		for (int i = 0; i < blackList.size(); i++)
+			bList += blackList.get(i).getRepresentation();
+		System.out.println(bList);
+	}
+	
+	void printWhitePieceList() {
+		Collections.sort(whiteList);
+		String wList = "";
+		for (int i = 0; i < whiteList.size(); i++)
+			wList += whiteList.get(i).getRepresentation();
+		System.out.println(wList);
 	}
 }
