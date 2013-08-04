@@ -1,6 +1,8 @@
 package chess;
 import static util.StringUtil.NEWLINE;
+
 import java.util.ArrayList;
+
 import pieces.Piece;
 
 public class Board {
@@ -98,5 +100,24 @@ public class Board {
 		}
 		
 		return count;
+	}
+	
+	Piece getPieceByXY(String string) {
+		String indexX = "abcdefgh";
+		String indexY = "12345678";
+		
+		char X = string.charAt(0);
+		char Y = string.charAt(1);
+		X = Character.toLowerCase(X);
+		
+		int XPos = indexX.indexOf(X);
+		int YPos = 0;
+		
+		if (XPos < 0)
+			return Piece.noPiece();
+		else {
+			YPos = indexY.indexOf(Y);
+			return chessBoard.get(YPos).boardPieceRow.get(XPos);
+		}
 	}
 }
