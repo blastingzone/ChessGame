@@ -6,27 +6,26 @@ import pieces.Piece;
 
 public class BoardRow {
 	ArrayList<Piece> boardPieceRow;
-	Piece initialPawn = Piece.noPiece();
 
 	BoardRow() {
 		boardPieceRow = new ArrayList<Piece>();
 	}
 
 	void rowAddWhitePawn() {
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < Board.colLength; i++) {
 			boardPieceRow.add(Piece.createWhitePawn());
 		}
 	}
 	
 	void rowAddBlackPawn() {
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < Board.colLength; i++) {
 			boardPieceRow.add(Piece.createBlackPawn());
 		}
 	}
 	
 	void rowAddBlank() {
-		for (int i = 0; i < 8; i++) {
-			boardPieceRow.add(initialPawn);
+		for (int i = 0; i < Board.colLength; i++) {
+			boardPieceRow.add(Piece.noPiece());
 		}
 	}
 	

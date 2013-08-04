@@ -20,33 +20,37 @@ public class Piece {
 	}
 	
 	public enum PieceType {
-		PAWN_REPRESENTATION('p'),
-		KNIGHT_REPRESENTATION('n'),
-		ROOK_REPRESENTATION('r'),
-		BISHOP_REPRESENTATION('b'),
-		QUEEN_REPRESENTATION('q'),
-		KING_REPRESENTATION('k'),
-		NO_PIECE('.');
+		PAWN_REPRESENTATION('p', 0.5),
+		KNIGHT_REPRESENTATION('n', 2.5),
+		ROOK_REPRESENTATION('r', 5.0),
+		BISHOP_REPRESENTATION('b', 3.0),
+		QUEEN_REPRESENTATION('q', 9.0),
+		KING_REPRESENTATION('k', 0.0),
+		NO_PIECE('.', 0.0);
 		
 		char name;
+		double value;
 		
-		private PieceType(char name) {
+		private PieceType(char name, double value) {
 			this.name = name;
+			this.value = value;
 		}
 		
 		char getName() {
 			return name;
 		}
+		
+		double getValue() {
+			return value;
+		}
 	}
 	
 	ColorList colorType;
 	PieceType type;
+	double value;
 	char representation;
 
 	
-	
-	//이름을 체크하는 기능이 필요할 것이다.
-	//1) 중복인지 2) 체스에 없는 이름인지
 	static Piece create(PieceType name, ColorList color) {
 		return new Piece(name,color);
 	}
@@ -54,6 +58,7 @@ public class Piece {
 	private Piece(PieceType name, ColorList color) {
 		type = name;
 		representation = name.getName();
+		value = name.getValue();
 		setType(color);
 	}
 	
@@ -69,8 +74,16 @@ public class Piece {
 		return type;
 	}
 	
+	public double getValue() {
+		return value;
+	}
+	
 	public char getRepresentation() {
 		return representation;
+	}
+	
+	public void setValue(double value) {
+		this.value = value;
 	}
 	
 	private void setType(ColorList color) {
