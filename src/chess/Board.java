@@ -111,13 +111,28 @@ public class Board {
 		X = Character.toLowerCase(X);
 		
 		int XPos = indexX.indexOf(X);
-		int YPos = 0;
+		int YPos = indexY.indexOf(Y);
 		
-		if (XPos < 0)
+		if (XPos < 0 || YPos < 0)
 			return Piece.noPiece();
 		else {
-			YPos = indexY.indexOf(Y);
 			return chessBoard.get(YPos).boardPieceRow.get(XPos);
 		}
+	}
+	
+	void addPieceByXY(String string, Piece piece) {
+		String indexX = "abcdefgh";
+		String indexY = "12345678";
+		
+		char X = string.charAt(0);
+		char Y = string.charAt(1);
+		X = Character.toLowerCase(X);
+		
+		int XPos = indexX.indexOf(X);
+		int YPos = indexY.indexOf(Y);
+		
+		if (XPos >= 0 && YPos >= 0)
+			chessBoard.get(YPos).boardPieceRow.remove(XPos);
+			chessBoard.get(YPos).boardPieceRow.add(XPos, piece);
 	}
 }

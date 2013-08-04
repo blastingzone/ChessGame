@@ -20,7 +20,7 @@ public class BoardTest extends TestCase {
 						+ StringUtil.appendNewLine("pppppppp")
 						+ StringUtil.appendNewLine("rnbqkbnr"), board.print());
 
-		System.out.println(board.print());
+//		System.out.println(board.print());
 	}
 	
 	//정확히 일치하는 말의 갯수 찾는 메소드
@@ -41,5 +41,15 @@ public class BoardTest extends TestCase {
 		assertEquals(Piece.createWhiteKing().getRepresentation(), board.getPieceByXY("e8").getRepresentation());
 		assertEquals(Piece.createBlackQueen().getRepresentation(), board.getPieceByXY("d1").getRepresentation());
 		assertEquals(Piece.noPiece().getRepresentation(), board.getPieceByXY("e4").getRepresentation());
+	}
+	
+	public void testAddPieceByXY() throws Exception {
+		board.addPieceByXY("b3", Piece.createBlackRook());
+		assertEquals(Piece.createBlackRook().getRepresentation(), board.getPieceByXY("b3").getRepresentation());
+		board.addPieceByXY("a6", Piece.createWhiteQueen());
+		assertEquals(Piece.createWhiteQueen().getRepresentation(), board.getPieceByXY("a6").getRepresentation());
+		board.addPieceByXY("a8", Piece.createBlackKing());
+		assertEquals(Piece.createBlackKing().getRepresentation(), board.getPieceByXY("a8").getRepresentation());
+		System.out.println(board.print());
 	}
 }
